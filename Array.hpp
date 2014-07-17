@@ -35,6 +35,8 @@
 #include <limits>
 #include <cstdio>
 
+#include "parse_date.hpp"
+
 using namespace std;
 
 namespace datatypes {
@@ -62,7 +64,7 @@ namespace datatypes {
 
 	    sprintf(buffer, "%04d-%02d-%02d", y,m,d);
 
-	    if (strptime(buffer,"%Y-%m-%d",&tm_val) == NULL)
+	    if (parse_date(buffer,&tm_val) == NULL)
 		printf("error\n\n");
 
 	    tm_val.tm_hour  = 0;

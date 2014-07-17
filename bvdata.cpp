@@ -34,6 +34,7 @@
 #include<algorithm>
 
 #include "bvdata.hpp"
+#include "parse_date.hpp"
 
 #define xDEBUG_BVDATAREPOSITORY
 #define xDEBUG_BVDATAFILE
@@ -359,7 +360,7 @@ bvdata::File::load(bool force)
 	
 	struct tm tm_val;
 
-	if (strptime(x[i].c_str(),"%Y-%m-%d",&tm_val) == NULL)
+	if (parse_date(x[i].c_str(),&tm_val) == NULL)
 	    printf("error\n\n");
 	
 	    tm_val.tm_hour  = 0;
@@ -553,7 +554,7 @@ void bvdata::Repository::initREnvironment(){
 #endif
 
 	    struct tm tm_val;
-	    if (strptime(x[i].c_str(),"%Y-%m-%d",&tm_val) == NULL)
+	    if (parse_date(x[i].c_str(),&tm_val) == NULL)
 		printf("error\n\n");
 
 	    tm_val.tm_hour  = 0;

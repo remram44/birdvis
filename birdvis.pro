@@ -156,6 +156,8 @@ LIBS += -lgdal \
         -lGLU \
         -lGLEW
 
+DEFINES += "_NO_W32_PSEUDO_MODIFIERS"
+
 message(directory $${INCLUDEPATH})
 
 # install
